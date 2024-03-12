@@ -1,0 +1,66 @@
+{% extends "navfooter.html" %}
+
+
+{% block contactus %}
+<div style="padding:55px; padding-top: 30px">
+  <div style="text-align :center">
+<h1 style= "font-size: 30px;margin-bottom: 25px;color: red">
+My All Contacts us Record 
+</h1>
+>>>>>>______________>>>>>>>
+
+ {{record}}
+ {% if messages %}
+
+ {{% for x in messages %}
+
+ <div class="alert alert-{{x.tags}}" role="alert">
+  {{x}}
+  
+ </div>
+
+
+ 
+ {% endfor %}}
+ 
+ {% endif %}
+
+<div class="row">
+    {% for data in records %}
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card">
+        <div class="card-body">
+        
+          <img src="/media/{{data.myimages}}" alt="" style=" max-width: 122px;">
+
+          <h5 class="card-title">full name:<span>{{data.username}}</span></h5>
+          <h5 class="card-title">User email:<span>{{data.useremail}}</span></h5>
+          <h5 class="card-title">Phone Number:<span>{{data.phonenumber}}</span></h5>
+          <p class="card-text">{{data.message}}</p>
+          {% comment %} <a href="#" class="btn btn-primary">submit</a> {% endcomment %}
+          <div>
+           
+           
+            <form action="delete-record/{{data.id}}" method="post">
+              {% csrf_token %}
+
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+
+            <form action="update/{{data.id}}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-success">Update</button>
+
+              {% comment %} <button type="submit" class="btn btn-danger">Delete</button> {% endcomment %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+
+{% endblock contactus %}

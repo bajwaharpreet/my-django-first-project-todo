@@ -1,0 +1,34 @@
+{% extends "navfooter.html" %}
+{% block contactus %}
+<form action="/guggu/updatethisdata/{{data.id}}" method="post">
+  {% csrf_token %}
+  <div>"CONTACT US"</div>
+
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">full name</label>
+    <input type="text"name="frame" value="{{data.username}}"class="form-control" id="exampleFormControlInput1" placeholder="enter your name"required>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">email address</label>
+    <input type="email"name="email" value="{{data.useremail}}" class="form-control" id="exampleFormControlInput1" placeholder="enter your email"required>
+  </div><div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">phone number</label>
+    <input type="number"name="number" value="{{data.phonenumber}}"class="form-control" id="exampleFormControlInput1" placeholder="entyer your number"required>
+  </div>
+  
+
+
+
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1"class="form-label">massage</label>
+    <textarea class="form-control" name="massage" id="exampleFormControlTextarea1" rows="3"required>{{data.massage}}</textarea>
+  </div>
+  <div>
+    <button type="=submit" class="btn btn-success">Ypdate</button>
+
+  </div>
+
+</form>
+
+{% endblock contactus %}

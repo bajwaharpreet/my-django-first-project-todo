@@ -1,0 +1,42 @@
+{% extends "navfooter.html" %}
+{% block contactus %}
+<form action="save-my-data" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div>"CONTACT US"</div>
+
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">full name</label>
+    <input type="text"name="frame" class="form-control" id="exampleFormControlInput1" placeholder="enter your name"required>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">email address</label>
+    <input type="email"name="email" class="form-control" id="exampleFormControlInput1" placeholder="enter your email"required>
+  </div><div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">phone number</label>
+    <input type="number"name="number" class="form-control" id="exampleFormControlInput1" placeholder="entyer your number"required>
+  </div>
+  
+
+
+
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">massage</label>
+    <textarea class="form-control" name="massage"id="exampleFormControlTextarea1" rows="3"required></textarea>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Upload Image</label>
+    <input type="file"name="imgg" class="form-control" id="exampleFormControlInput1" placeholder="entyer your number"required>
+  </div>
+
+
+  <div>
+    <button type="=submit" class="btn btn-success">submit</button>
+
+  </div>
+
+</form>
+
+{% endblock contactus %}
